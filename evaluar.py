@@ -33,7 +33,7 @@ uploaded_file = st.file_uploader("Selecciona una imagen", type=["jpg", "png", "j
 
 if uploaded_file:
     imagen = Image.open(uploaded_file)
-    st.image(imagen, caption="Imagen cargada", use_container_width=True)  # ← corregido aquí
+    st.image(imagen, caption="Imagen cargada", use_column_width=True)  # ← corregido aquí
 
     with st.spinner("Analizando imagen..."):
         resultado = predecir_enfermedad(imagen)
