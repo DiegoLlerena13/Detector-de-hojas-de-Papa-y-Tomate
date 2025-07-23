@@ -16,8 +16,7 @@ clases = [
 
 # Función de predicción
 def predecir_enfermedad(img_pil):
-    # Asegúrate de convertir a RGB por si viene como RGBA o L
-    img = imagen_pil.convert("RGB")
+    img = img_pil.convert("RGB")  # Asegura que no tenga canal alfa
     img = img.resize((128, 128))
     img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
@@ -34,7 +33,7 @@ uploaded_file = st.file_uploader("Selecciona una imagen", type=["jpg", "png", "j
 
 if uploaded_file:
     imagen = Image.open(uploaded_file)
-    st.image(imagen, caption="Imagen cargada", use_column_width=True)
+    st.image(imagen, caption="Imagen cargada", use_container_width=True)  # ← corregido aquí
 
     with st.spinner("Analizando imagen..."):
         resultado = predecir_enfermedad(imagen)
