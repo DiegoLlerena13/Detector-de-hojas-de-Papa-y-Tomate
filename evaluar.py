@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Cargar el modelo entrenado
-modelo = tf.keras.models.load_model("modelo_planta3.keras")
+modelo = tf.keras.models.load_model("modelo_planta3.h5")
 
 # Nombres de las clases (en el mismo orden que el entrenamiento)
 clases = [
