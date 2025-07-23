@@ -16,7 +16,9 @@ clases = [
 
 # Función de predicción
 def predecir_enfermedad(img_pil):
-    img = img_pil.resize((128, 128))
+    # Asegúrate de convertir a RGB por si viene como RGBA o L
+    img = imagen_pil.convert("RGB")
+    img = img.resize((128, 128))
     img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
 
